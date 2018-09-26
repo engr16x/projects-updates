@@ -1,3 +1,7 @@
+# This is a short code that changes the SSID
+# For single-digit teams, we made them 10X instead of 0X
+# And this returns it to normal
+
 import os
 
 # Here is the file we are changing
@@ -10,10 +14,8 @@ team_num = homedir.replace( '/home/team_' , '' )
 
 old_num = '1' + team_num
 
-#Just read the file to a list, 
-#make the changes to the strings there, 
-#create a new file overriding the old file 
-#write the edited strings to the new file.
+# This while loop reads the file to a list
+# Makes the changes to the strings there
 
 newfile = []
 found = False
@@ -37,11 +39,16 @@ while not found:
       print(filename)
       filename = input( 'Please enter proper path: ' )
 
+# This creates a new file overriding the old file 
+# And writes the edited strings to the new file
+
 with open( filename , 'w' ) as file:
   for line in newfile:
     file.write( line )
 
-#instruct the user to sudo reboot
+# Here are some outputs for the user
+# Notifying the user if certain things happened
+
 if not completed:
   print( 'No changes were made to the file hostapd.conf' )
   print( 'Please report this to a TA' )
