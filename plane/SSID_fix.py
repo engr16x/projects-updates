@@ -1,9 +1,9 @@
 import os
 
-#variable names
+# Here is the file we are changing
 filename = '/etc/hostapd/hostapd.conf'
 
-#get team number by looking at their username
+# We can get team number by looking at their username
 homedir = os.environ[ 'HOME' ]
 team_num = homedir.replace( '/home/team_' , '' )
 
