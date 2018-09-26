@@ -1,7 +1,5 @@
 #!/bin/bash
 
 echo
-echo "This file has not been configured yet."
-echo
-echo "Always keep your trunks on."
-read temp
+python3 ./SSID_fix.py
+read -p 'press enter' -n 1 -s
