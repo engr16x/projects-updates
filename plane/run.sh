@@ -1,5 +1,6 @@
 #!/bin/bash
 
 echo
-sudo python3 /home/pi/Desktop/source_files/plane/SSID_fix.py
-read -p 'press enter' -n 1 -s
+echo "Changing WiFi name"
+sudo python3 /home/pi/Desktop/source_files/plane/plane/SSID_fix.py
+read -p 'Press Enter' -n 1 -s
