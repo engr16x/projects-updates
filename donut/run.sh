@@ -3,17 +3,18 @@
 echo
 echo "Running Donut update script"
 
-runv=0
-while true; do
+runv1=0
+runv2=0
+while [[ $runv1 == 0 ]]; do
     read -p "Do you wish to run the account reset script? (y/n) " yn
     case $yn in
-        [Yy]* ) $runv=1; break;;
+        [Yy]* ) $runv1=1; $runv2=1; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
-if [[ $runv == 1 ]];
+if [[ $runv2 == 1 ]];
     sudo chmod +x /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh
     sudo /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh
 fi
