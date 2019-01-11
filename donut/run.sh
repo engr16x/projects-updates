@@ -13,9 +13,9 @@ while true; do
     esac
 done
 
-if [ $runv == 1 ];
+if [[ $runv == 1 ]];
     sudo chmod +x /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh
-    sudo /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh;
+    sudo /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh
 fi
 
 echo
