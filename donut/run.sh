@@ -6,7 +6,7 @@ echo "Running Donut update script"
 while true; do
     read -p "Do you wish to run the account reset script? (y/n)" yn
     case $yn in
-        [Yy]* ) sudo ./engr16x_reset.sh; break;;
+        [Yy]* ) sudo /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
