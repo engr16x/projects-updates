@@ -15,23 +15,12 @@ teams=()
 file="/etc/passwd"
 while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
 do
-  if [ $f1 == *"team"* ] ; 
+  if [[ $f1 == *"team"* ]] || [[ $f1 == *"section"* ]] ; 
   then
     echo "$f1 found"
     teams+=($f1)
   fi
 done <"$file"
-
-file="/etc/passwd"
-while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
-do
-  if [ $f1 == *"section"* ] ; 
-  then
-    echo "$f1 found"
-    teams+=($f1)
-  fi
-done <"$file"
-
 
 for account in ${teams[@]}
 do
