@@ -8,13 +8,14 @@ runv2=0
 while [[ $runv1 == 0 ]]; do
     read -p "Do you wish to run the account reset script? (y/n) " yn
     case $yn in
-        [Yy]* ) $runv1=1; $runv2=1; break;;
+        [Yy]* ) runv1=1; runv2=1; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
 if [[ $runv2 == 1 ]];
+    then
     sudo chmod +x /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh
     sudo /home/pi/Desktop/updates/donut/donut/engr16x_reset.sh
 fi
