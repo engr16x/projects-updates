@@ -9,7 +9,7 @@ while [[ $runv1 == 0 ]]; do
     read -p "Do you wish to run the account reset script? (y/n) " yn
     case $yn in
         [Yy]* ) $runv1=1; $runv2=1; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
