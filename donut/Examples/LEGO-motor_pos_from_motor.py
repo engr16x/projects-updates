@@ -31,25 +31,25 @@ BP = brickpi3.BrickPi3()
 
 try:
     # Set current position of motor A to 'zero' position.
-	zeroPositionA = BP.get_motor_encoder(BP.PORT_A)
-	BP.offset_motor_encoder(BP.PORT_A, zeroPositionA) 
-	
+    zeroPositionA = BP.get_motor_encoder(BP.PORT_A)
+    BP.offset_motor_encoder(BP.PORT_A, zeroPositionA) 
+    
     # Set current position of motor D to 'zero' position.
-	zeroPositionD = BP.get_motor_encoder(BP.PORT_D)
-	BP.offset_motor_encoder(BP.PORT_A, zeroPositionD)
+    zeroPositionD = BP.get_motor_encoder(BP.PORT_D)
+    BP.offset_motor_encoder(BP.PORT_A, zeroPositionD)
     
     print("Set motor A to position corresponding to motor D\nCtrl+C to end program\n")
 
-	
-	while True: # Loop runs indefinitely until manual termination by Ctrl+C.
-		
-		targetPosition = BP.get_motor_encoder(BP.PORT_D)   # Read position of motor D
-		BP.set_motor_position(BP.PORT_A, targetPosition)   # Set position of motor A to match motor D
-		
-		currentPosition = BP.get_motor_encoder(BP.PORT_A)) # Read position of motor A	
-		print("Motor A target: {:6d}  Motor A position: {:6d}".format(targetPosition, currentPosition))
-		
-		time.sleep(0.02)  # Delay for 0.02 seconds to reduce RaspberryPi CPU load
+    
+    while True: # Loop runs indefinitely until manual termination by Ctrl+C.
+        
+        targetPosition = BP.get_motor_encoder(BP.PORT_D)   # Read position of motor D
+        BP.set_motor_position(BP.PORT_A, targetPosition)   # Set position of motor A to match motor D
+        
+        currentPosition = BP.get_motor_encoder(BP.PORT_A)) # Read position of motor A    
+        print("Motor A target: {:6d}  Motor A position: {:6d}".format(targetPosition, currentPosition))
+        
+        time.sleep(0.02)  # Delay for 0.02 seconds to reduce RaspberryPi CPU load
 
 except KeyboardInterrupt: # Run if program manually terminated by keyboard interrupt Ctrl+C.
-	BP.reset_all()        # Unconfigure the sensors, disable the motors, and restore the LED to the control of the BrickPi3 firmware.
+    BP.reset_all()        # Unconfigure the sensors, disable the motors, and restore the LED to the control of the BrickPi3 firmware.
