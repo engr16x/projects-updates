@@ -3,6 +3,7 @@
 # Short program to delete extant student accounts on the raspberry pis
 # Written by Nicholas Masso 1/10/2019
 # With code written by Trevor Meyer in summer 2018
+# Edited by Nicholas Masso 8/25/2019
 
 
 echo "Welcome to the ENGR16X account reset script!"
@@ -15,12 +16,13 @@ teams=()
 file="/etc/passwd"
 while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
 do
-  if [[ $f1 == *"team"* ]] || [[ $f1 == *"section"* ]] ; 
+  if [[ $f1 == *"team"* ]] || [[ $f1 == *"section"* ]]; 
   then
     echo "$f1 found"
     teams+=($f1)
   fi
 done <"$file"
+
 
 for account in ${teams[@]}
 do
@@ -42,6 +44,11 @@ do
   echo "Creating Desktop"
   sudo mkdir /home/$account/Desktop
   sudo cp -r /home/pi/Desktop/newDesktop/. /home/$account/Desktop/
+  
+  # This is the added line for example files
+  echo "Adding Example Files"
+  sudo cp -r /home/pi/Desktop/updates/donut/donut/Examples/. /home/$account/Desktop/Examples/
+  
   echo "Adjusting Permissions"
   sudo chown -R $account:$account /home/$account/Desktop
   sudo chown -R pi:pi /home/$account/Desktop/"UPDATE FILES"
@@ -50,6 +57,7 @@ do
   sudo adduser $account spi
   sudo chmod -R 4755 /home/$account/Desktop/"UPDATE FILES"
   #sudo python3 runFilesAsCreator.py /home/$account/Desktop/"UPDATE FILES"
+  
 done
 
 echo
