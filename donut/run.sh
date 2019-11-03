@@ -2,6 +2,18 @@
 
 echo
 echo "Running Donut update script"
+echo
+echo " _       _____    ____  _   _______   ________"
+echo "| |     / /   |  / __ \/ | / /  _/ | / / ____/"
+echo "| | /| / / /| | / /_/ /  |/ // //  |/ / / __  "
+echo "| |/ |/ / ___ |/ _, _/ /|  // // /|  / /_/ /  "
+echo "|__/|__/_/  |_/_/ |_/_/ |_/___/_/ |_/\____/   "
+echo 
+echo "THIS WILL DELETE ALL TEAM/SECTION USER FILES"
+echo "DO NOT RUN UNLESS YOU ARE LOGGED IN AS INSTRUCTOR"
+echo "you are logged in as: " $USER
+echo
+
 
 runv1=0
 runv2=0
