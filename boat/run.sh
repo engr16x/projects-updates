@@ -17,7 +17,7 @@ sudo chmod +x /home/pi/Dexter/GrovePi/Firmware/firmware_update.sh
 cd /home/pi/Dexter/GrovePi/Firmware
 sudo /home/pi/Dexter/GrovePi/Firmware/firmware_update.sh
 
-sudo apt-get install libffi-dev
+sudo apt-get install libffi-dev -y
 
 sudo chmod +x /home/pi/Dexter/GrovePi/Script/update_grovepi.sh
 su - pi -c "/home/pi/Dexter/GrovePi/Script/update_grovepi.sh"
@@ -34,7 +34,7 @@ do
   fi
 done <"$file"
 
-cp -rvu /home/pi/Dexter /home/$team/Desktop/Dexter
+cp -rvu /home/pi/Dexter/GrovePi/Software/Python/grovepi.py /home/$team/Desktop/Dexter/GrovePi/Software/Python/grovepi.py
 
 echo "Seas the day."
 read temp
