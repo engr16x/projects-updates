@@ -60,9 +60,9 @@ if [[ $runv2 == 1 ]];
     # only update the firmware
     then
 
-    sudo chmod +x /home/pi/Dexter/GrovePi/Firmware/firmware_update.sh
     cd /home/pi/Dexter/GrovePi/Firmware
-    sudo /home/pi/Dexter/GrovePi/Firmware/firmware_update.sh
+    source .grovepi_firmware_update.sh
+    update_grovepi_firmware
 fi
 
 
@@ -70,7 +70,7 @@ fi
 if [[ $runv4 == 1 ]];
     then
     cd /home/pi/Dexter
-    
+    sudo apt-get install -y libi2c-dev i2c-tools libffi-dev
     git clone https://github.com/DexterInd/RFR_Tools.git
     sudo cp /home/pi/Desktop/updates/boat/boat/setup_mod.py /home/pi/Dexter/RFR_Tools/miscellaneous/setup_mod.py
     cd /home/pi/Dexter/RFR_Tools/miscellaneous
