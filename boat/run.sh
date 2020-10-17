@@ -8,6 +8,14 @@ echo
 echo "Updating the GrovePi Firmware"
 echo
 
+nc -z -w 5 8.8.4.4 53  >/dev/null 2>&1
+online=$?
+if [ $online -eq 0 ]; then
+    echo "Internet connection found"
+else
+    echo "NO INTERNET CONNECTION DETECTED - ABORTING"
+    exit
+fi
 
 runv1=0
 runv2=0
@@ -61,10 +69,9 @@ if [[ $runv2 == 1 ]];
     then
 
     cd /home/pi/Dexter/GrovePi/Firmware
-    source .grovepi_firmware_update.sh
+    source /home/pi/Dexter/GrovePi/Firmware/grovepi_firmware_update.sh
     update_grovepi_firmware
 fi
-
 
 
 if [[ $runv4 == 1 ]];
@@ -76,6 +83,8 @@ if [[ $runv4 == 1 ]];
     cd /home/pi/Dexter/RFR_Tools/miscellaneous
     sudo python setup_mod.py install
     sudo adduser $team gpio
+    sudo chown root.gpio /dev/mem
+    sudo chmod g+rw /dev/mem
 fi
 
 echo "Seas the day. (press any button to exit)"
