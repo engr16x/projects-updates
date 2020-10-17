@@ -13,7 +13,8 @@ online=$?
 if [ $online -eq 0 ]; then
     echo "Internet connection found"
 else
-    echo "NO INTERNET CONNECTION DETECTED - ABORTING"
+    echo "NO INTERNET CONNECTION DETECTED - ABORTING (press any key to exit)"
+    read temp
     exit
 fi
 
