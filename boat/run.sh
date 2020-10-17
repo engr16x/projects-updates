@@ -79,13 +79,16 @@ if [[ $runv4 == 1 ]];
     cd /home/pi/Dexter
     sudo apt-get install -y libi2c-dev i2c-tools libffi-dev
     git clone https://github.com/DexterInd/RFR_Tools.git
-    sudo cp /home/pi/Desktop/updates/boat/boat/setup_mod.py /home/pi/Dexter/RFR_Tools/miscellaneous/setup_mod.py
     cd /home/pi/Dexter/RFR_Tools/miscellaneous
-    sudo python setup_mod.py install
+    sudo python setup.py install
     sudo adduser $team gpio
     sudo chown root.gpio /dev/mem
     sudo chmod g+rw /dev/mem
 fi
 
+echo 
+echo 
+echo
+echo "PLEASE REBOOT FOR CHANGES TO TAKE EFFECT"
 echo "Seas the day. (press any button to exit)"
 read temp
