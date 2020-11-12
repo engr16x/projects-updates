@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # updates the grovepi firmware
+# edit 10/17/2020
 # and updates the grovepi python library
-# edited 10/17/2020
+# edit 11/12/2020
+# removes offending files from /usr/bin
+# places updated files in /usr/lib/python3/dist-packages
+# tells students not to copy the brickpi or grovepi libraries anymore
 
 echo
-echo "Updating the GrovePi Firmware"
+echo "Performing GrovePi Updates"
+echo "boat updated 11/12/2020"
 echo
 
 nc -z -w 5 8.8.4.4 53  >/dev/null 2>&1
@@ -76,6 +81,7 @@ fi
 
 
 if [[ $runv4 == 1 ]];
+    # update only python libraries
     then
     cd /home/pi/Dexter
     sudo apt-get install -y libi2c-dev i2c-tools libffi-dev
@@ -85,6 +91,39 @@ if [[ $runv4 == 1 ]];
     sudo adduser $team gpio
     sudo chown root.gpio /dev/mem
     sudo chmod g+rw /dev/mem
+    
+    sudo rm -f /usr/bin/grovepi.py
+    sudo rm -f /usr/bin/brickpi3.py
+    
+    echo "copying new library to package location..."
+    
+    sudo cp /home/pi/Dexter/GrovePi/Software/Python/grovepi.py /usr/lib/python3/dist-packages/grovepi.py
+    sudo cp /home/pi/Dexter/BrickPi3/Software/Python/brickpi3.py /usr/lib/python3/dist-packages/brickpi3.py
+    
+    echo "finding old versions of libraries..."
+    
+    paths=$(sudo find /home/$team -type d -path /home/$team/Desktop/Dexter -prune -o -type f -name 'grovepi.py' -print)
+    for p in $paths
+    do
+        echo "deleting" $p
+        sudo rm -f $p;
+    done
+    
+    echo
+    echo "        _   ______  ______________________"
+    echo "       / | / / __ \/_  __/  _/ ____/ ____/"
+    echo "      /  |/ / / / / / /  / // /   / __/   "
+    echo "     / /|  / /_/ / / / _/ // /___/ /___   "
+    echo "    /_/ |_/\____/ /_/ /___/\____/_____/   "
+    echo      
+    echo "    ######################################"
+    echo "    #     after this update, DO NOT      #"
+    echo "    #      copy the brickpi3.py or       #"
+    echo "    #    grovepi.py libraries to the     #" 
+    echo "    #   location you are running code.   #"
+    echo "    # they are availible system-wide now #"
+    echo "    ######################################"
+    echo 
 fi
 
 echo 
