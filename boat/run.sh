@@ -100,6 +100,9 @@ if [[ $runv4 == 1 ]];
     sudo cp /home/pi/Dexter/GrovePi/Software/Python/grovepi.py /usr/lib/python3/dist-packages/grovepi.py
     sudo cp /home/pi/Dexter/BrickPi3/Software/Python/brickpi3.py /usr/lib/python3/dist-packages/brickpi3.py
     
+    # add a line for if the pi user doesnt have brickpi3??? this has happened multiple times
+    sudo cp /home/$team/Desktop/Dexter/BrickPi3/Software/Python/brickpi3.py /usr/lib/python3/dist-packages/brickpi3.py
+
     echo "finding old versions of libraries..."
     
     paths=$(sudo find /home/$team -type d -path /home/$team/Desktop/Dexter -prune -o -type f -name 'grovepi.py' -print)
