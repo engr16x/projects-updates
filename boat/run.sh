@@ -7,10 +7,13 @@
 # removes offending files from /usr/bin
 # places updated files in /usr/lib/python3/dist-packages
 # tells students not to copy the brickpi or grovepi libraries anymore
+# edit 11/16/2020
+# some students pis dont have /home/pi/Dexter/BrickPi3 ???? anyway the copy fails so
+# heres a fix - just take it from the teams files.
 
 echo
 echo "Performing GrovePi Updates"
-echo "boat updated 11/12/2020"
+echo "boat updated 11/16/2020"
 echo
 
 nc -z -w 5 8.8.4.4 53  >/dev/null 2>&1
