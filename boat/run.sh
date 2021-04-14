@@ -10,6 +10,11 @@
 # edit 11/16/2020
 # some students pis dont have /home/pi/Dexter/BrickPi3 ???? anyway the copy fails so
 # heres a fix - just take it from the teams files.
+# edit 4/13/2021
+# sometimes the install will fail, and then RFR_tools will not be an empty directory
+# this causes more failures, and it can never fix itself
+# also uses python2 for the apt-get install of libffi-dev
+# so that it builds properly.
 
 echo
 echo "Performing GrovePi Updates"
@@ -87,10 +92,23 @@ if [[ $runv4 == 1 ]];
     # update only python libraries
     then
     cd /home/pi/Dexter
+    
+    # need to switch the python version to 2 so that apt-get doesnt break when trying to do shit
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 3
+    
     sudo apt-get install -y libi2c-dev i2c-tools libffi-dev
+    
+    # and switch it back
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+    
+    
+    sudo rm -rf ./RFR_Tools/*
     git clone https://github.com/DexterInd/RFR_Tools.git
     cd /home/pi/Dexter/RFR_Tools/miscellaneous
+    
+    # this is where things are installed
     sudo python setup.py install
+    
     sudo adduser $team gpio
     sudo chown root.gpio /dev/mem
     sudo chmod g+rw /dev/mem
@@ -99,6 +117,8 @@ if [[ $runv4 == 1 ]];
     sudo rm -f /usr/bin/brickpi3.py
     
     echo "copying new library to package location..."
+    # this should be relatively redundant, because we already setup.py installed... 
+    # but just in case we can override things a bit here. 
     
     sudo cp /home/pi/Dexter/GrovePi/Software/Python/grovepi.py /usr/lib/python3/dist-packages/grovepi.py
     sudo cp /home/pi/Dexter/BrickPi3/Software/Python/brickpi3.py /usr/lib/python3/dist-packages/brickpi3.py
