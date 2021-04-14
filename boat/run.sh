@@ -18,7 +18,7 @@
 
 echo
 echo "Performing GrovePi Updates"
-echo "boat updated 11/16/2020"
+echo "boat updated 04/13/2021"
 echo
 
 nc -z -w 5 8.8.4.4 53  >/dev/null 2>&1
