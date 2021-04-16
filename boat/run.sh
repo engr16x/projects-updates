@@ -102,7 +102,7 @@ if [[ $runv4 == 1 ]];
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
     
     
-    sudo rm -rf ./RFR_Tools/*
+    sudo rm -rf ./RFR_Tools
     git clone https://github.com/DexterInd/RFR_Tools.git
     cd /home/pi/Dexter/RFR_Tools/miscellaneous
     
