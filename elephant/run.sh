@@ -9,6 +9,18 @@
 # WiFi channel. 
 # Written by David Li 10/5/2020
 
+VCHECK=`cat /etc/motd | grep "6\."`
+if [ "$VCHECK" != "" ]
+then
+    echo "THIS SCRIPT WAS WRITTEN FOR VERSION 5 ENGR OS BUILDS"
+    echo "YOU ARE RUNNING VERSION: 6"
+    echo "THIS SCRIPT WILL FAIL!"
+    echo
+    echo "Press [enter] to exit."
+    read temp
+    exit 0
+fi
+
 echo "Welcome to the ENGR16X WiFi channel update!"
 echo "This script will reconfigure your Raspberry Pi's"
 echo "access point channel number to channels 1, 6, or 11."

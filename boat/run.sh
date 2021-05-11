@@ -21,6 +21,23 @@ echo "Performing GrovePi Updates"
 echo "boat updated 04/13/2021"
 echo
 
+
+VCHECK=`cat /etc/motd | grep "6\."`
+if [ "$VCHECK" != "" ]
+then
+    echo "THIS SCRIPT WAS WRITTEN FOR VERSION 5 ENGR OS BUILDS"
+    echo "YOU ARE RUNNING VERSION: 6"
+    echo "THIS SCRIPT WILL FAIL!"
+    echo
+    echo "Press [enter] to exit."
+    read temp
+    exit 0
+fi
+
+echo "you are logged in as: " $USER
+echo
+
+
 nc -z -w 5 8.8.4.4 53  >/dev/null 2>&1
 online=$?
 if [ $online -eq 0 ]; then
@@ -107,7 +124,7 @@ if [[ $runv4 == 1 ]];
     cd /home/pi/Dexter/RFR_Tools/miscellaneous
     
     # this is where things are installed
-    sudo python setup.py install
+    sudo python3 setup.py install
     
     sudo adduser $team gpio
     sudo chown root.gpio /dev/mem
