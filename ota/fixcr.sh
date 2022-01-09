@@ -10,11 +10,11 @@ echo
 echo Correcting line endings
 echo
 
-sed s/#!/bin/bash\r/#!/bin/bash /home/pi/Desktop/updates/plane/plane/run.sh
-sed s/#!/bin/bash\r/#!/bin/bash /home/pi/Desktop/updates/boat/boat/run.sh
-sed s/#!/bin/bash\r/#!/bin/bash /home/pi/Desktop/updates/donut/donut/run.sh
-sed s/#!/bin/bash\r/#!/bin/bash /home/pi/Desktop/updates/elephant/elephant/run.sh
-sed s/#!/bin/bash\r/#!/bin/bash /home/pi/Desktop/updates/duck/duck/run.sh
+sed s/bash\r/bash /home/pi/Desktop/updates/plane/plane/run.sh
+sed s/bash\r/bash /home/pi/Desktop/updates/boat/boat/run.sh
+sed s/bash\r/bash /home/pi/Desktop/updates/donut/donut/run.sh
+sed s/bash\r/bash /home/pi/Desktop/updates/elephant/elephant/run.sh
+sed s/bash\r/bash /home/pi/Desktop/updates/duck/duck/run.sh
 
 echo
 echo line endings have been updated
