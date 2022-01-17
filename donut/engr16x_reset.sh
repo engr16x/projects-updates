@@ -72,7 +72,7 @@ sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
 
 echo
 echo "Changing Desktop Background"
-sudo /home/pi/projects-rpi-setup-6/setup_files/21_changeBackground.sh "instructor"
+sudo /home/pi/projects-rpi-setup-6/setup_files/21_changeBackground.sh $account
 
 echo
 echo "Account Setup Complete!"
