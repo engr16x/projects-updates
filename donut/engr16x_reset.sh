@@ -62,10 +62,10 @@ echo "Adding Grove and Brick Pi Example files"
 echo
 
 # Dexter Example Files
-mkdir /home/$account/Desktop/Examples/BrickPi3
-mkdir /home/$account/Dekstop/Examples/GrovePi
-cp /home/instructor/Desktop/Examples/BrickPi3 /home/$account/Desktop/Examples/BrickPi3
-cp /home/instructor/Desktop/Examples/GrovePi /home/$account/Desktop/Examples/GrovePi
+sudo mkdir /home/$account/Desktop/Examples/BrickPi3
+sudo mkdir /home/$account/Dekstop/Examples/GrovePi
+sudo cp /home/instructor/Desktop/Examples/BrickPi3 /home/$account/Desktop/Examples/BrickPi3
+sudo cp /home/instructor/Desktop/Examples/GrovePi /home/$account/Desktop/Examples/GrovePi
 echo
 echo "Removing necessary file permissions"
 sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
