@@ -72,8 +72,7 @@ sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
 
 echo
 echo "Changing Desktop Background"
-pcmanfm --set-wallpaper=/home/pi/projects-rpi-setup-6/files/resources/purdue-eng-logo.png
-pcmanfm --wallpaper-mode=stretch
+sudo /home/pi/projects-rpi-setup-6/setup_files/21_changeBackground.sh instructor
 
 echo
 echo "Account Setup Complete!"
