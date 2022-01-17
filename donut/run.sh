@@ -14,17 +14,7 @@ echo "DO NOT RUN UNLESS YOU ARE LOGGED IN AS INSTRUCTOR"
 echo "you are logged in as: " $USER
 echo
 
-VCHECK=`cat /etc/motd | grep "6\."`
-if [ "$VCHECK" != "" ]
-then
-    echo "THIS SCRIPT WAS WRITTEN FOR VERSION 5 ENGR OS BUILDS"
-    echo "YOU ARE RUNNING VERSION: 6"
-    echo "THIS SCRIPT WILL FAIL!"
-    echo
-    echo "Press [enter] to exit."
-    read temp
-    exit 0
-fi
+echo "This will only work for Pis operating on RPI V6"
 
 
 runv1=0

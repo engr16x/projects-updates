@@ -4,6 +4,7 @@
 # Written by Nicholas Masso 1/10/2019
 # With code written by Trevor Meyer in summer 2018
 # Edited by Nicholas Masso 8/25/2019
+# Edited by Trevor Ladner 1/17/2022
 
 
 echo "Welcome to the ENGR16X account reset script!"
@@ -40,19 +41,15 @@ do
   echo "$account:$account" | chpasswd
   echo "Adding reboot, shutdown, and poweroff sudo access"
   echo "$account ALL=NOPASSWD: /sbin/reboot, /sbin/shutdown, /sbin/poweroff" | sudo EDITOR='tee -a' visudo
-  echo "$account ALL=NOPASSWD: /home/pi/Desktop/source_files/*" | sudo EDITOR='tee -a' visudo
+  echo "$account ALL=NOPASSWD: /home/pi/projects-rpi-setup-6/files/new_desktop/*" | sudo EDITOR='tee -a' visudo
   echo "Creating Desktop"
   sudo mkdir /home/$account/Desktop
-  sudo cp -r /home/pi/Desktop/newDesktop/. /home/$account/Desktop/
-  
-  # This is the added line for example files
-  echo "Adding Example Files"
-  sudo cp -r /home/pi/Desktop/updates/donut/donut/Examples/. /home/$account/Desktop/Examples/
+  sudo cp -r /home/pi/projects-rpi-setup-6/files/new_desktop/. /home/$account/Desktop/
+
   
   echo "Adjusting Permissions"
   sudo chown -R $account:$account /home/$account/Desktop
   sudo chown -R pi:pi /home/$account/Desktop/"UPDATE FILES"
-  sudo chmod 755 /home/$account/Desktop/setupAccount.sh
   sudo adduser $account i2c
   sudo adduser $account spi
   sudo chmod -R 4755 /home/$account/Desktop/"UPDATE FILES"
@@ -62,7 +59,7 @@ done
 
 echo
 echo "Removing necessary file permissions"
-sudo python3 /home/pi/Desktop/setup_files/removePermissions.py
+sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
 
 echo
 echo "Account Setup Complete!"
