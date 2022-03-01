@@ -1,3 +1,3 @@
 # Updates - Boat
 
-updates the grovepi firmware
+updates the grove pi gpio permissions
