@@ -5,7 +5,7 @@
 
 echo
 echo "Performing GrovePi Updates"
-echo "boat updated 04/13/2021"
+echo "boat updated 03/01/2022"
 echo
 
 echo "you are logged in as: " $USER
@@ -48,5 +48,5 @@ echo "        _    _"
 echo "     __|_|__|_|__"
 echo "   _|____________|__"
 echo "  |o o o o o o o o /"
-echo "~'`~'`~'`~'`~'`~'`~'`~"
+echo "~~~~~~~~~~~~~~~~~~~~~~"
 read temp
