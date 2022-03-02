@@ -48,6 +48,10 @@ sudo chmod -R 755 /home/$team/Desktop/Examples/DIIS
 sudo chmod -R 755 /home/$team/Desktop/Examples/Custom
 sudo chmod -R 755 /home/$team/Desktop/Examples/IMU
 
+echo
+echo "Setting IDLE3 as default python editor"
+echo "text/x-python=idle-python3.7.desktop" | sudo tee -a /usr/share/applications/defaults.list > /dev/null
+
 echo 
 echo 
 echo
