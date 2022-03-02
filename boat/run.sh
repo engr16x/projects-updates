@@ -37,7 +37,7 @@ read tnum
 team="team_$tnum"
 
 echo giving team gpio permissions
-sudo add user $team gpio
+sudo adduser $team gpio
 sudo chown root.gpio /dev/mem
 sudo chmod a+rw /dev/mem
 
