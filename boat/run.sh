@@ -32,25 +32,19 @@ while [[ $runv1 == 0 ]]; do
     esac
 done
 
-echo Finding team account
-while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
-do
-    if [[ $f1 == *"team"* ]];
-    then
-        echo "$f1 found"
-        team = ($f1)
-    fi
-done < "$file"
+echo "Enter the team number:"
+read tnum
+team="team_$tnum"
 
 echo giving team gpio permissions
 sudo chmod a+rw /dev/gpiomem
 
 echo giving executable permissions to examples
-sudo chmod a+rwx /home/$team/Desktop/Examples/GrovePi
-sudo chmod a+rwx /home/$team/Desktop/Examples/BrickPi
-sudo chmod a+rwx /home/$team/Desktop/Examples/DIIS
-sudo chmod a+rwx /home/$team/Desktop/Examples/Custom
-sudo chmod a+rwx /home/$team/Desktop/Examples/IMU
+sudo chmod -R 777 /home/$team/Desktop/Examples/GrovePi
+sudo chmod -R 777 /home/$team/Desktop/Examples/BrickPi
+sudo chmod -R 777 /home/$team/Desktop/Examples/DIIS
+sudo chmod -R 777 /home/$team/Desktop/Examples/Custom
+sudo chmod -R 777 /home/$team/Desktop/Examples/IMU
 
 echo 
 echo 
