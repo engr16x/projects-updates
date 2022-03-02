@@ -33,11 +33,7 @@ while [[ $runv1 == 0 ]]; do
 done
 
 echo giving team gpio permissions
-sudo adduser $team gpio
-sudo chown root.gpio /dev/mem
-sudo chmod g+rw /dev/mem
-
-
+sudo chmod a+rw /dev/mem
 
 echo 
 echo 
