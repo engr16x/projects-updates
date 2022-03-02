@@ -40,11 +40,11 @@ echo giving team gpio permissions
 sudo chmod a+rw /dev/gpiomem
 
 echo giving executable permissions to examples
-sudo chmod -R 777 /home/$team/Desktop/Examples/GrovePi
-sudo chmod -R 777 /home/$team/Desktop/Examples/BrickPi
-sudo chmod -R 777 /home/$team/Desktop/Examples/DIIS
-sudo chmod -R 777 /home/$team/Desktop/Examples/Custom
-sudo chmod -R 777 /home/$team/Desktop/Examples/IMU
+sudo chmod -R 755 /home/$team/Desktop/Examples/GrovePi
+sudo chmod -R 755 /home/$team/Desktop/Examples/BrickPi3
+sudo chmod -R 755 /home/$team/Desktop/Examples/DIIS
+sudo chmod -R 755 /home/$team/Desktop/Examples/Custom
+sudo chmod -R 755 /home/$team/Desktop/Examples/IMU
 
 echo 
 echo 
