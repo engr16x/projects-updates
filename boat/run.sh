@@ -37,7 +37,9 @@ read tnum
 team="team_$tnum"
 
 echo giving team gpio permissions
-sudo chmod a+rw /dev/gpiomem
+sudo add user $team gpio
+sudo chown root.gpio /dev/mem
+sudo chmod a+rw /dev/mem
 
 echo giving executable permissions to examples
 sudo chmod -R 755 /home/$team/Desktop/Examples/GrovePi
