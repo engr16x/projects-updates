@@ -35,6 +35,13 @@ done
 echo giving team gpio permissions
 sudo chmod a+rw /dev/mem
 
+echo giving executable permissions to examples
+sudo chmod a+rwx /home/$team/Desktop/Examples/GrovePi
+sudo chmod a+rwx /home/$team/Desktop/Examples/BrickPi
+sudo chmod a+rwx /home/$team/Desktop/Examples/DIIS
+sudo chmod a+rwx /home/$team/Desktop/Examples/Custom
+sudo chmod a+rwx /home/$team/Desktop/Examples/IMU
+
 echo 
 echo 
 echo
