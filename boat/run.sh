@@ -33,16 +33,27 @@ while [[ $runv1 == 0 ]]; do
     esac
 done
 
-echo "Enter the team number:"
-read tnum
-team="team_$tnum"
+runv1=0
+while [[ $runv1 == 0 ]]; do
+    echo"Please enter the team number: "
+    read tnum
+    if tnum <= 80;
+        runv1=1
+        team="team_$tnum"
+    fi
+    if tnum > 80;
+        echo "Please enter a team number less than 80";
+        runv1=0
+    fi
+done
 
-echo giving team gpio permissions
+
+echo "giving team gpio permissions"
 sudo adduser $team gpio
 sudo chown root.gpio /dev/mem
 sudo chmod a+rw /dev/mem
 
-echo giving executable permissions to examples
+echo "giving executable permissions to examples"
 sudo chmod -R a+rw /home/$team/Desktop/Examples/GrovePi
 sudo chmod -R a+rw /home/$team/Desktop/Examples/BrickPi3
 sudo chmod -R a+rw /home/$team/Desktop/Examples/DIIS
@@ -53,10 +64,6 @@ sudo chmod -R a-x /home/$team/Desktop/Examples/BrickPi3
 sudo chmod -R a-x /home/$team/Desktop/Examples/DIIS
 sudo chmod -R a-x /home/$team/Desktop/Examples/Custom
 sudo chmod -R a-x /home/$team/Desktop/Examples/IMU
-
-echo
-echo "Setting IDLE3 as default python editor"
-echo "text/x-python=idle-python3.7.desktop" | sudo tee -a /usr/share/applications/defaults.list > /dev/null
 
 echo 
 echo 
