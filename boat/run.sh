@@ -44,11 +44,11 @@ sudo chown root.gpio /dev/mem
 sudo chmod a+rw /dev/mem
 
 echo "giving executable permissions to examples"
-sudo chmod -R 766 /home/$team/Desktop/Examples/GrovePi
-sudo chmod -R 766 /home/$team/Desktop/Examples/BrickPi3
-sudo chmod -R 766 /home/$team/Desktop/Examples/DIIS
-sudo chmod -R 766 /home/$team/Desktop/Examples/Custom
-sudo chmod -R 766 /home/$team/Desktop/Examples/IMU
+sudo chmod -R 777 /home/$team/Desktop/Examples/GrovePi
+sudo chmod -R 777 /home/$team/Desktop/Examples/BrickPi3
+sudo chmod -R 777 /home/$team/Desktop/Examples/DIIS
+sudo chmod -R 777 /home/$team/Desktop/Examples/Custom
+sudo chmod -R 777 /home/$team/Desktop/Examples/IMU
 
 echo 
 echo 
