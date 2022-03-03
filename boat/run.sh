@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # updates the gpio permissions
-# edit 3/1/2022
+# edit 3/3/2022
+# by Trevor Ladner
 
 echo
 echo "Performing GrovePi Updates"
-echo "boat updated 03/01/2022"
+echo "boat updated 03/03/2022"
 echo
 
 echo "you are logged in as: " $USER
@@ -42,11 +43,16 @@ sudo chown root.gpio /dev/mem
 sudo chmod a+rw /dev/mem
 
 echo giving executable permissions to examples
-sudo chmod -R 755 /home/$team/Desktop/Examples/GrovePi
-sudo chmod -R 755 /home/$team/Desktop/Examples/BrickPi3
-sudo chmod -R 755 /home/$team/Desktop/Examples/DIIS
-sudo chmod -R 755 /home/$team/Desktop/Examples/Custom
-sudo chmod -R 755 /home/$team/Desktop/Examples/IMU
+sudo chmod -R a+rw /home/$team/Desktop/Examples/GrovePi
+sudo chmod -R a+rw /home/$team/Desktop/Examples/BrickPi3
+sudo chmod -R a+rw /home/$team/Desktop/Examples/DIIS
+sudo chmod -R a+rw /home/$team/Desktop/Examples/Custom
+sudo chmod -R a+rw /home/$team/Desktop/Examples/IMU
+sudo chmod -R a-x /home/$team/Desktop/Examples/GrovePi
+sudo chmod -R a-x /home/$team/Desktop/Examples/BrickPi3
+sudo chmod -R a-x /home/$team/Desktop/Examples/DIIS
+sudo chmod -R a-x /home/$team/Desktop/Examples/Custom
+sudo chmod -R a-x /home/$team/Desktop/Examples/IMU
 
 echo
 echo "Setting IDLE3 as default python editor"
