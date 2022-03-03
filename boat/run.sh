@@ -33,20 +33,10 @@ while [[ $runv1 == 0 ]]; do
     esac
 done
 
-runv1=0
-while [[ $runv1 == 0 ]]; do
-    echo"Please enter the team number: "
-    read tnum
-    if tnum <= 80;
-        runv1=1
-        team="team_$tnum"
-    fi
-    if tnum > 80;
-        echo "Please enter a team number less than 80";
-        runv1=0
-    fi
-done
 
+echo "Please enter the team number: "
+read tnum
+team="team_$tnum"
 
 echo "giving team gpio permissions"
 sudo adduser $team gpio
