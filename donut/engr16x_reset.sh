@@ -68,9 +68,10 @@ echo
 echo "Adding extra example files"
 echo
 
-sudo wget https://raw.githubusercontent.com/engr16x/projects-updates/blob/master/extra-examples/extra-examples.zip -P /home/instructor/Desktop/Examples/
-sudo unzip /home/instructor/Desktop/Examples/extra-examples.zip
-sudo rm extra-examples.zip
+sudo wget https://github.com/engr16x/projects-updates/raw/master/extra-examples/extra-examples.zip -P /home/instructor/Desktop/Examples/
+sudo mkdir /home/$account/Desktop/Examples/extra-examples
+sudo unzip /home/instructor/Desktop/Examples/extra-examples.zip -d /home/$account/Desktop/Examples/extra-examples
+sudo rm /home/instructor/Desktop/Examples/extra-examples.zip
 
 echo
 echo "Adding Grove and Brick Pi Example files"
