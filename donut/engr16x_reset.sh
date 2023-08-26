@@ -4,7 +4,8 @@
 # Written by Nicholas Masso 1/10/2019
 # With code written by Trevor Meyer in summer 2018
 # Edited by Nicholas Masso 8/25/2019
-# Edited by Trevor Ladner 1/17/2022 test
+# Edited by Trevor Ladner 1/17/2022
+# Edited by [Braden?] via Owen Johnson 8/26/2023
 
 
 echo "Welcome to the ENGR16X account reset script!"
@@ -57,6 +58,11 @@ do
   
 done
 
+echo "giving team gpio permissions"
+sudo adduser $team gpio
+sudo chown root.gpio /dev/mem
+sudo chmod a+rw /dev/mem
+
 echo
 echo "Adding Grove and Brick Pi Example files"
 echo
@@ -80,5 +86,3 @@ echo "Please login to each account created to verify successful creation"
 echo
 echo "Enter 'sudo reboot' to finish updating settings"
 echo
-
-
