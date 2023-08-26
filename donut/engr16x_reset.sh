@@ -4,7 +4,7 @@
 # Written by Nicholas Masso 1/10/2019
 # With code written by Trevor Meyer in summer 2018
 # Edited by Nicholas Masso 8/25/2019
-# Edited by Trevor Ladner 1/17/2022
+# Edited by Trevor Ladner 1/17/2022 test
 
 
 echo "Welcome to the ENGR16X account reset script!"
