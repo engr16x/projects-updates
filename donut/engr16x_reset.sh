@@ -65,6 +65,13 @@ sudo chmod a+rw /dev/mem
 
 
 echo
+echo "Fixing pcmanfm folder restart issue (we hope)"
+echo
+
+sudo apt-get install --reinstall pcmanfm
+
+
+echo
 echo "Adding extra example files"
 echo
 
