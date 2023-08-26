@@ -59,7 +59,7 @@ do
 done
 
 echo "giving team gpio permissions"
-sudo adduser $team gpio
+sudo adduser $account gpio
 sudo chown root.gpio /dev/mem
 sudo chmod a+rw /dev/mem
 
