@@ -63,6 +63,15 @@ sudo adduser $team gpio
 sudo chown root.gpio /dev/mem
 sudo chmod a+rw /dev/mem
 
+
+echo
+echo "Adding extra example files"
+echo
+
+sudo wget https://raw.githubusercontent.com/engr16x/projects-updates/blob/master/extra-examples/extra-examples.zip -P /home/instructor/Desktop/Examples/
+sudo unzip /home/instructor/Desktop/Examples/extra-examples.zip
+sudo rm extra-examples.zip
+
 echo
 echo "Adding Grove and Brick Pi Example files"
 echo
@@ -72,6 +81,7 @@ sudo mkdir /home/$account/Desktop/Examples/BrickPi3
 sudo mkdir /home/$account/Desktop/Examples/GrovePi
 sudo cp -r /home/instructor/Desktop/Examples/BrickPi3/. /home/$account/Desktop/Examples/BrickPi3/
 sudo cp -r /home/instructor/Desktop/Examples/GrovePi/. /home/$account/Desktop/Examples/GrovePi/
+
 echo
 echo "Removing necessary file permissions"
 sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
