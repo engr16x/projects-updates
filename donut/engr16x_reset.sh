@@ -55,48 +55,48 @@ do
   sudo adduser $account spi
   sudo chmod -R 4755 /home/$account/Desktop/"UPDATE FILES"
   #sudo python3 runFilesAsCreator.py /home/$account/Desktop/"UPDATE FILES"
+
+  echo "giving team gpio permissions"
+  sudo adduser $account gpio
+  sudo chown root.gpio /dev/mem
+  sudo chmod a+rw /dev/mem
+  
+  
+  echo
+  echo "Adding extra example files"
+  echo
+  
+  sudo wget https://github.com/engr16x/projects-updates/raw/master/extra-examples/extra-examples.zip -P /home/instructor/Desktop/Examples/
+  sudo mkdir /home/$account/Desktop/Examples/extra-examples
+  sudo unzip /home/instructor/Desktop/Examples/extra-examples.zip -d /home/$account/Desktop/Examples/extra-examples
+  sudo rm /home/instructor/Desktop/Examples/extra-examples.zip
+  
+  echo
+  echo "Adding Grove and Brick Pi Example files"
+  echo
+  
+  # Dexter Example Files
+  sudo mkdir /home/$account/Desktop/Examples/BrickPi3
+  sudo mkdir /home/$account/Desktop/Examples/GrovePi
+  sudo cp -r /home/instructor/Desktop/Examples/BrickPi3/. /home/$account/Desktop/Examples/BrickPi3/
+  sudo cp -r /home/instructor/Desktop/Examples/GrovePi/. /home/$account/Desktop/Examples/GrovePi/
+  
+  echo
+  echo "Removing necessary file permissions"
+  sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
+  
+  echo
+  echo "Changing Desktop Background"
+  sudo /home/pi/projects-rpi-setup-6/setup_files/21_changeBackground.sh $account
   
 done
 
-echo "giving team gpio permissions"
-sudo adduser $account gpio
-sudo chown root.gpio /dev/mem
-sudo chmod a+rw /dev/mem
-
 
 echo
-echo "Fixing pcmanfm folder restart issue (we hope)"
+echo "Fixing pcmanfm folder restart issue"
 echo
 
 sudo apt-get install --reinstall pcmanfm
-
-
-echo
-echo "Adding extra example files"
-echo
-
-sudo wget https://github.com/engr16x/projects-updates/raw/master/extra-examples/extra-examples.zip -P /home/instructor/Desktop/Examples/
-sudo mkdir /home/$account/Desktop/Examples/extra-examples
-sudo unzip /home/instructor/Desktop/Examples/extra-examples.zip -d /home/$account/Desktop/Examples/extra-examples
-sudo rm /home/instructor/Desktop/Examples/extra-examples.zip
-
-echo
-echo "Adding Grove and Brick Pi Example files"
-echo
-
-# Dexter Example Files
-sudo mkdir /home/$account/Desktop/Examples/BrickPi3
-sudo mkdir /home/$account/Desktop/Examples/GrovePi
-sudo cp -r /home/instructor/Desktop/Examples/BrickPi3/. /home/$account/Desktop/Examples/BrickPi3/
-sudo cp -r /home/instructor/Desktop/Examples/GrovePi/. /home/$account/Desktop/Examples/GrovePi/
-
-echo
-echo "Removing necessary file permissions"
-sudo python3 /home/pi/projects-rpi-setup-6/setup_files/20_removePermissions.py
-
-echo
-echo "Changing Desktop Background"
-sudo /home/pi/projects-rpi-setup-6/setup_files/21_changeBackground.sh $account
 
 echo
 echo "Account Setup Complete!"
