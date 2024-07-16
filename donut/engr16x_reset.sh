@@ -65,7 +65,7 @@ do
   sudo /home/pi/projects-rpi-setup-7/setup_files/21_changeBackground.sh $account
   sudo cp -r /home/pi/.config/Thonny /home/$account/.config/Thonny
   # sudo cp -r /home/pi/Desktop/source_files/. /home/$account/Desktop/source_files/
-  # sudo chmod 777 /home/$account/.config/Thonny/backend.log
+  sudo chmod 777 /home/$account/.config/Thonny/backend.log
   sudo chmod 777 /home/$account/.config/Thonny/frontend_faults.log
   sudo chmod 777 /home/$account/.config/Thonny/leave_this_empty
   sudo chmod 777 /home/$account/.config/Thonny/configuration.ini
