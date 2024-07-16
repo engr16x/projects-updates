@@ -62,8 +62,8 @@ do
   sudo chown root:gpio /dev/mem
   sudo chmod g+rw /dev/mem
   sudo chmod -R 4755 /home/$account/Desktop/"UPDATE FILES"
-  sudo /home/pi/$FOLDERNAME/setup_files/21_changeBackground.sh $account
-  sudo cp -r /home/pi/.config/Thonny /home/$account/.config
+  sudo /home/pi/projects-rpi-setup-7/setup_files/21_changeBackground.sh $account
+  sudo cp -r /home/pi/.config/Thonny /home/$account/.config/Thonny
   # sudo cp -r /home/pi/Desktop/source_files/. /home/$account/Desktop/source_files/
   # sudo chmod 777 /home/$account/.config/Thonny/backend.log
   sudo chmod 777 /home/$account/.config/Thonny/frontend_faults.log
